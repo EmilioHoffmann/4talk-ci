@@ -2,7 +2,7 @@ FROM frolvlad/alpine-java:jdk8-full
 
 # MAINTAINER Autor <henrique.schmidt@4all.com>
 
-# export android version variables
+# export android version variables  
 ENV ANDROID_COMPILE_SDK="28"
 ENV ANDROID_BUILD_TOOLS="28.0.3"
 ENV ANDROID_SDK_TOOLS="4333796"
