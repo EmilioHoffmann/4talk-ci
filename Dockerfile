@@ -39,3 +39,7 @@ RUN apk update && \
     pip install awscli --upgrade && \
     # clean deps
     apk del unzip
+    # install ktlint
+    wget -O ./ktlint https://github.com/shyiko/ktlint/releases/download/0.29.0/ktlint
+    chmod +x ./ktlint
+
