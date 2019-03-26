@@ -40,6 +40,6 @@ RUN apk update && \
     # clean deps
     apk del unzip
     # install ktlint
-    wget -O ./ktlint https://github.com/shyiko/ktlint/releases/download/0.29.0/ktlint
+    curl https://github.com/shyiko/ktlint/releases/download/0.29.0/ktlint  -o ./ktlint 
     chmod +x ./ktlint
 
