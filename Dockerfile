@@ -38,8 +38,8 @@ RUN apk update && \
     pip install --upgrade pip && \
     pip install awscli --upgrade && \
     # clean deps
-    apk del unzip
+    apk del unzip && \
     # install ktlint
-    curl https://github.com/shyiko/ktlint/releases/download/0.29.0/ktlint  -o ./ktlint 
+    curl https://github.com/shyiko/ktlint/releases/download/0.33.0/ktlint  -o ./ktlint && \
     chmod +x ./ktlint
 
