@@ -4,6 +4,7 @@ FROM frolvlad/alpine-java:jdk8-full
 
 # export android version variables  
 ENV ANDROID_COMPILE_SDK="29"
+ENV ANDROID_BUILD_TOOLS="29.0.2"
 ENV ANDROID_SDK_TOOLS="r29.0.2-linux"
 
 # export variables
@@ -28,7 +29,7 @@ RUN apk update && \
     echo "e9acab5b5fbb560a72cfaecce8946896ff6aab9d" >> "$ANDROID_HOME/licenses/mips-android-sysimage-license" && \
     # download build-tools
     /usr/local/android-sdk/tools/bin/sdkmanager --update && \
-    echo y | /usr/local/android-sdk/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" "extras;google;m2repository" "extras;android;m2repository"  && \
+    echo y | /usr/local/android-sdk/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" "build-tools;${ANDROID_BUILD_TOOLS}" "extras;google;m2repository" "extras;android;m2repository"  && \
     chmod 777 -R /usr/local/android-sdk/ && \
     # download aws tools
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
