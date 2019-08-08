@@ -4,7 +4,7 @@ FROM frolvlad/alpine-java:jdk8-full
 
 # export android version variables  
 ENV ANDROID_COMPILE_SDK="29"
-ENV ANDROID_SDK_TOOLS="4333796"
+ENV ANDROID_SDK_TOOLS="r29.0.2-linux"
 
 # export variables
 ENV ANDROID_HOME="/usr/local/android-sdk/"
@@ -16,7 +16,7 @@ RUN apk update && \
     # install deps
     apk add --no-cache bash gcc curl unzip libstdc++ libusb musl zlib libgcc python3  && \
     # download android sdk
-    curl https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip -o android-sdk.zip && \
+    curl https://dl.google.com/android/repository/build-tools_${ANDROID_SDK_TOOLS}.zip -o android-sdk.zip && \
     unzip android-sdk.zip -d /usr/local/android-sdk && \
     rm ./android-sdk.zip && \
     # create android licenses
