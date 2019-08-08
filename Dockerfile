@@ -3,8 +3,7 @@ FROM frolvlad/alpine-java:jdk8-full
 # MAINTAINER Autor <henrique.schmidt@4all.com>
 
 # export android version variables  
-ENV ANDROID_COMPILE_SDK="28"
-ENV ANDROID_BUILD_TOOLS="28.0.3"
+ENV ANDROID_COMPILE_SDK="29"
 ENV ANDROID_SDK_TOOLS="4333796"
 
 # export variables
@@ -29,7 +28,7 @@ RUN apk update && \
     echo "e9acab5b5fbb560a72cfaecce8946896ff6aab9d" >> "$ANDROID_HOME/licenses/mips-android-sysimage-license" && \
     # download build-tools
     /usr/local/android-sdk/tools/bin/sdkmanager --update && \
-    echo y | /usr/local/android-sdk/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" "build-tools;${ANDROID_BUILD_TOOLS}" "extras;google;m2repository" "extras;android;m2repository"  && \
+    echo y | /usr/local/android-sdk/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" "extras;google;m2repository" "extras;android;m2repository"  && \
     chmod 777 -R /usr/local/android-sdk/ && \
     # download aws tools
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
