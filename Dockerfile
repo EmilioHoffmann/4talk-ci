@@ -41,7 +41,7 @@ RUN apk update && \
     apk del unzip && \
     # install ktlint
     curl https://github.com/shyiko/ktlint/releases/download/0.33.0/ktlint  -o ./ktlint && \
-    chmod +x ./ktlint
+    chmod +x ./ktlint \
     # install node
     curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
