@@ -42,9 +42,5 @@ RUN apk update && \
     # install ktlint
     curl https://github.com/shyiko/ktlint/releases/download/0.33.0/ktlint  -o ./ktlint && \
     chmod +x ./ktlint
-    apt-get install git-core curl build-essential openssl libssl-dev \
-    && git clone https://github.com/nodejs/node.git \
-    && cd node \
-    && ./configure \
-    && make \
-    && sudo make install
+    curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
+
